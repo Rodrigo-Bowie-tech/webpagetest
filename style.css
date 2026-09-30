@@ -1,0 +1,253 @@
+/* ============================================================
+   Cores e medidas da página.
+   Para mudar o visual, comece trocando os valores abaixo.
+   ============================================================ */
+:root {
+  --cor-fundo: #f6f5fb;
+  --cor-cartao: #ffffff;
+  --cor-texto: #1c1b29;
+  --cor-texto-suave: #5d5b72;
+  --cor-destaque: #5b45e0;
+  --cor-texto-no-destaque: #ffffff;
+  --cor-borda: #e3e1ef;
+  --cor-brilho: rgba(91, 69, 224, 0.16);
+  --cor-no-ar: #1f9d55;
+  --raio: 16px;
+  --largura-maxima: 60rem;
+  color-scheme: light;
+}
+
+/* Cores do modo escuro, usadas quando o celular ou o computador está no tema escuro. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --cor-fundo: #111019;
+    --cor-cartao: #1b1a27;
+    --cor-texto: #eeedf7;
+    --cor-texto-suave: #a9a7bf;
+    --cor-destaque: #a194ff;
+    --cor-texto-no-destaque: #111019;
+    --cor-borda: #2d2b3d;
+    --cor-brilho: rgba(161, 148, 255, 0.14);
+    --cor-no-ar: #3ddc84;
+    color-scheme: dark;
+  }
+}
+
+/* ---------- Base ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+code {
+  padding: 0.1em 0.4em;
+  border: 1px solid var(--cor-borda);
+  border-radius: 6px;
+  background: var(--cor-cartao);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9em;
+}
+
+/* Centraliza o conteúdo e deixa uma margem de 1rem nas laterais do celular. */
+.container {
+  width: min(100% - 2rem, var(--largura-maxima));
+  margin-inline: auto;
+}
+
+/* ---------- Topo ---------- */
+
+.hero {
+  padding-block: clamp(4rem, 12vw, 7.5rem) clamp(3rem, 8vw, 5rem);
+  background: radial-gradient(60rem 26rem at 50% 0%, var(--cor-brilho), transparent);
+  text-align: center;
+}
+
+.selo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+  margin: 0 auto 1.5rem;
+  padding: 0.35rem 0.9rem;
+  border: 1px solid var(--cor-borda);
+  border-radius: 999px;
+  background: var(--cor-cartao);
+  color: var(--cor-texto-suave);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* A bolinha verde de "no ar". */
+.selo::before {
+  content: "";
+  flex: none;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--cor-no-ar);
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.25rem, 9vw, 5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.subtitulo {
+  max-width: 40rem;
+  margin: 1.25rem auto 2rem;
+  color: var(--cor-texto-suave);
+  font-size: clamp(1.0625rem, 2.5vw, 1.25rem);
+  text-wrap: balance;
+}
+
+.botao {
+  padding: 0.85rem 1.5rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--cor-destaque);
+  box-shadow: 0 10px 24px -10px var(--cor-destaque);
+  color: var(--cor-texto-no-destaque);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.botao:hover {
+  transform: translateY(-2px);
+}
+
+.botao:active {
+  transform: translateY(0);
+}
+
+.botao:focus-visible {
+  outline: 3px solid var(--cor-destaque);
+  outline-offset: 3px;
+}
+
+/* ---------- Conteúdo ---------- */
+
+main {
+  padding-bottom: 4rem;
+}
+
+section + section {
+  margin-top: 3.5rem;
+}
+
+h2 {
+  margin: 0 0 1.25rem;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+/* Cartões lado a lado; no celular, um embaixo do outro. */
+.cartoes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 1rem;
+}
+
+.cartao {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1.5rem;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  background: var(--cor-cartao);
+}
+
+.cartao h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+}
+
+.cartao p {
+  margin: 0 0 1rem;
+  color: var(--cor-texto-suave);
+}
+
+/* Empurra o nome do arquivo para o pé do cartão. */
+.cartao code {
+  margin-top: auto;
+  border: 0;
+  background: var(--cor-brilho);
+  color: var(--cor-destaque);
+  font-size: 0.85rem;
+}
+
+/* Lista numerada com os números dentro de bolinhas. */
+.passos {
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: passo;
+}
+
+.passos li {
+  position: relative;
+  min-height: 2rem;
+  padding-left: 3rem;
+  counter-increment: passo;
+}
+
+.passos li::before {
+  content: counter(passo);
+  position: absolute;
+  top: -0.1rem;
+  left: 0;
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--cor-destaque);
+  color: var(--cor-texto-no-destaque);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+/* ---------- Rodapé ---------- */
+
+.rodape {
+  padding-block: 2rem;
+  border-top: 1px solid var(--cor-borda);
+  color: var(--cor-texto-suave);
+  font-size: 0.9375rem;
+  text-align: center;
+}
+
+.rodape p {
+  margin: 0;
+}
+
+/* Sem animação para quem pediu menos movimento nas configurações do sistema. */
+@media (prefers-reduced-motion: reduce) {
+  .botao {
+    transition: none;
+  }
+}

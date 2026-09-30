@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Minha primeira página</title>
+  <meta name="description" content="Uma página simples feita com HTML, CSS e JavaScript e hospedada de graça no GitHub Pages.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👋</text></svg>">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <p class="selo">Hospedada de graça no GitHub Pages</p>
+      <h1 id="saudacao" aria-live="polite">Olá, mundo!</h1>
+      <p class="subtitulo">
+        Esta é a minha primeira página na web. Ela é feita só com HTML, CSS e
+        JavaScript: nada para instalar, nada para pagar.
+      </p>
+      <button id="botao-saudacao" class="botao" type="button">
+        Dizer olá em outro idioma
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section aria-labelledby="titulo-partes">
+      <h2 id="titulo-partes">Do que esta página é feita</h2>
+      <div class="cartoes">
+        <article class="cartao">
+          <h3>HTML</h3>
+          <p>A estrutura: títulos, parágrafos, links e imagens.</p>
+          <code>index.html</code>
+        </article>
+        <article class="cartao">
+          <h3>CSS</h3>
+          <p>O visual: cores, fontes, espaços e o layout que se ajusta ao celular.</p>
+          <code>style.css</code>
+        </article>
+        <article class="cartao">
+          <h3>JavaScript</h3>
+          <p>O comportamento: é ele que troca a saudação quando você clica no botão.</p>
+          <code>script.js</code>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="titulo-editar">
+      <h2 id="titulo-editar">Como mudar esta página</h2>
+      <ol class="passos">
+        <li>Abra o <code>index.html</code> no GitHub e clique no lápis para editar os textos.</li>
+        <li>Para trocar as cores, mude os valores no começo do <code>style.css</code>.</li>
+        <li>Clique em <strong>Commit changes</strong> para salvar. Em um ou dois minutos a nova versão está no ar.</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <p>Feito com HTML, CSS e JavaScript · <span id="ano">2026</span></p>
+    </div>
+  </footer>
+</body>
+</html>
